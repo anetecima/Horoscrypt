@@ -21,10 +21,22 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: black;
+    background: white;
+    font-family: 'Roboto', sans-serif;
+  }
+  * {
+    box-sizing: border-box;
   }
   body {
     margin: 0;
     overflow: hidden;
+  }
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active{
+      -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+      color: white;
   }
 `

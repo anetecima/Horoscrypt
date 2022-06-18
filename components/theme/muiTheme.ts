@@ -2,10 +2,10 @@ import { MEDIA_BREAKPOINTS } from './media'
 import { createTheme } from '@material-ui/core/styles'
 
 const style = {
-  breakpoints: {
-    values: MEDIA_BREAKPOINTS
-  },
-
+  // breakpoints: {
+  //   values: MEDIA_BREAKPOINTS
+  // }
+  //
   // typography: {
   //     fontFamily: [
   //         '-apple-system',
@@ -26,14 +26,7 @@ const style = {
     MuiInputBase: {
       root: {
         fontSize: 14,
-        color: '#000',
-        backgroundColor: '#ff0000',
-        '&:hover': {
-          backgroundColor: '#ff0000'
-        },
-        '&$focused': {
-          backgroundColor: '#ff0000'
-        }
+        color: '#000'
       },
       input: {
         backgroundColor: 'transparent',

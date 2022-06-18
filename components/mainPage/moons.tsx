@@ -7,12 +7,12 @@ const PageStyle = styled.div`
   z-index: -1;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: #fff;
   overflow: hidden;
+  transform: translateX(-50%);
 `
 const MoonStyle = styled.div`
   width: 100%;
@@ -43,7 +43,9 @@ const ShadowStyle = styled.div<{ index: number }>`
 
 const MoonWrapperStyle = styled.div<{ index: number }>`
   width: 10vw;
+  min-width: 86px;
   height: 10vw;
+  min-height: 86px;
   max-width: 190px;
   max-height: 190px;
   top: 50%;
@@ -53,13 +55,18 @@ const MoonWrapperStyle = styled.div<{ index: number }>`
   transform-origin: center;
   border-radius: 100%;
   overflow: hidden;
+
+  @media (max-width: 860px) {
+    transform: translate(-50%, -50%) rotate(${props => (360 / MOONS_AMOUNT) * props.index}deg)
+      translate(290px) rotate(0deg);
+  }
 `
 
 const Moon = ({ index }: { index: number }) => {
   return (
     <MoonWrapperStyle index={index} className="pos-abt">
       <MoonStyle className="pos-rlt z-i-1" />
-      <ShadowStyle className="pos-abt z-i-2 bg-black" index={index} />
+      <ShadowStyle className="pos-abt z-i-2 bg-white" index={index} />
     </MoonWrapperStyle>
   )
 }
