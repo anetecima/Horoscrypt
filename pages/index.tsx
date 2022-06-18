@@ -1,6 +1,6 @@
 import React from 'react'
 import { MainPage } from '../components/mainPage'
-import { GlobalStyle } from '../components/globalStyles'
+import { GlobalStyle } from '../components/theme/globalStyles'
 
 const IndexPage = () => (
   <>
