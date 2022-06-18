@@ -1,15 +1,12 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from 'react'
+import { MainPage } from '../components/mainPage'
+import { GlobalStyle } from '../components/globalStyles'
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
+  <>
+    <GlobalStyle />
+    <MainPage />
+  </>
 )
 
 export default IndexPage
