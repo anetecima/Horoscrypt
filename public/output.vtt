@@ -1,0 +1,125 @@
+WEBVTT
+
+00:00:11.386 --> 00:00:12.676
+[en-US] So how you can hear me?
+
+00:00:16.776 --> 00:00:19.506
+[en-US] And you.
+
+00:00:22.396 --> 00:00:23.326
+[en-US] Admitted.
+
+00:00:32.556 --> 00:00:33.606
+[en-US] Guys, can you hear me?
+
+00:00:35.756 --> 00:00:40.046
+[en-US] Yeah, let's say I can hear, but I can't hear they have to.
+
+00:00:42.106 --> 00:00:44.796
+[en-US] There's a small problem, I.
+
+00:00:46.176 --> 00:00:49.996
+[en-US] Can't start the transcription of the background noises because.
+
+00:01:00.916 --> 00:01:03.086
+[en-US] So everybody, everybody can hear everybody.
+
+00:01:04.746 --> 00:01:05.376
+[en-US] Basically.
+
+00:01:10.606 --> 00:01:13.096
+[en-US] Yeah, for few seconds.
+
+00:01:14.776 --> 00:01:17.066
+[en-US] I tried to start the transcription.
+
+00:01:18.886 --> 00:01:25.136
+[en-US] I think I will go somewhere. I think that's the I think the transcription works automatically right when you record the meeting.
+
+00:01:27.206 --> 00:01:34.546
+[en-US] No, it doesn't. You have to start it manually, but it's disabled for me for.
+
+00:01:35.446 --> 00:01:37.466
+[en-US] Yeah, probably because we don't have premium.
+
+00:01:38.896 --> 00:01:39.636
+[en-US] Ohh
+
+00:01:42.516 --> 00:01:43.016
+[en-US] 2nd.
+
+00:01:45.376 --> 00:01:46.686
+[en-US] Period I don't know.
+
+00:02:38.774 --> 00:02:47.124
+[en-US] So uhm guys, work on something for 3/5 minutes. I have to go to my settings and.
+
+00:02:48.474 --> 00:02:50.904
+[en-US] And allow taking transcripts so.
+
+00:02:53.464 --> 00:02:53.714
+[en-US] Yeah.
+
+00:03:01.114 --> 00:03:01.644
+[en-US] Hi.
+
+00:03:04.214 --> 00:03:18.174
+[en-US] Can everyone hi, I have a small problem with transcript enable process. So it takes 3 minutes three to five minutes so it's OK. You don't have to enable, we can do it later and the OneDrive.
+
+00:03:18.924 --> 00:03:22.634
+[en-US] No, you have to enable transcription no.
+
+00:03:23.534 --> 00:03:36.604
+[en-US] You can also enable. Afterwards you can enable after OK OneDrive as well. We can. We can also, so it's recording all already for three minutes. So say something fun and let's call it up. Tell a joke.
+
+00:03:39.004 --> 00:03:42.174
+[en-US] For example, I, so what's the?
+
+00:03:44.074 --> 00:03:46.084
+[en-US] Agenda for today's meeting.
+
+00:03:48.914 --> 00:04:17.524
+[en-US] There's no agenda. There's no agenda, but there should be an agenda, don't you think that's the one of the important things about meetings? There should be an agenda that we should be following and we should come up with the conclusion that the general idea of meetings for this meeting is to prepare a recording of the meeting. We can analyze it and create subscriptions and deeper analysis of it. Yes, and the next steps should be.
+
+00:04:17.834 --> 00:04:23.314
+[en-US] That we create a back end for this yes, which will take our text.
+
+00:04:24.804 --> 00:04:27.914
+[en-US] Connected to meeting notes.
+
+00:04:29.524 --> 00:04:30.854
+[en-US] OK click enter right.
+
+00:04:32.514 --> 00:04:39.384
+[en-US] We actually need for a two things to run the API that will call different things like because.
+
+00:04:42.204 --> 00:04:43.714
+[en-US] It will call Microsoft.
+
+00:04:44.574 --> 00:04:51.374
+[en-US] And then we will send emails with that API. So two things right actually. And it will also download the file.
+
+00:04:53.424 --> 00:04:54.754
+[en-US] I'm just saying it's not real.
+
+00:04:55.544 --> 00:04:58.214
+[en-US] And it's just a program in Python programs.
+
+00:04:59.414 --> 00:05:03.784
+[en-US] Exactly, and it's usually something that connects to front end or something like.
+
+00:05:04.534 --> 00:05:25.704
+[en-US] It's because they had less program. It will connect front and it took just the front end will cause and OK link to the back end back end will do those things then send that the email, email context and then that email context will be read by the front end user then front end users can add extra email addresses then even you click send it will send.
+
+00:05:26.854 --> 00:05:33.044
+[en-US] What's so funny? Tell us so we all laugh. It's just chaos here laughing about me.
+
+00:05:34.644 --> 00:05:46.894
+[en-US] That has the meeting on speakers, so when I listen to myself in half second to delay, it's very distracting. Yes, I'm sorry.
+
+00:05:49.084 --> 00:05:58.404
+[en-US] OK, I think that's enough. That's enough if you think so. The conclusion of the meeting is that we create a back end. We create a front end and send emails to the customers.
+
+00:05:59.914 --> 00:06:01.444
+[en-US] Amazing amazing.
+

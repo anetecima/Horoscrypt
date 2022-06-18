@@ -13,6 +13,9 @@ export const colorHelpers = css`
   .c-black {
     color: black;
   }
+  .c-error {
+    color: red;
+  }
   .bg-transparent {
     background-color: transparent;
   }

@@ -22,14 +22,11 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: white;
+    color: black;
     font-family: 'Roboto', sans-serif;
   }
   * {
     box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    overflow: hidden;
   }
   
   input:-webkit-autofill,
@@ -38,5 +35,5 @@ export const GlobalStyle = createGlobalStyle`
   input:-webkit-autofill:active{
       -webkit-box-shadow: 0 0 0 30px transparent inset !important;
       color: white;
-  }
+  } 
 `

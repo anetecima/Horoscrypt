@@ -1,18 +1,18 @@
 import React from 'react'
-import { Moons } from './moons'
+import { Faces } from './faces'
 
 import styled from 'styled-components'
 import { FormInputs } from './formInputs'
 const IntroWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 `
 
 export const MainPage = () => {
   return (
-    <IntroWrapper className="fl-c">
-      <Moons />
+    <IntroWrapper>
+      <Faces />
 
       <FormInputs />
     </IntroWrapper>

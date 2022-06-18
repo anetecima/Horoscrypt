@@ -1,26 +1,10 @@
-import { MEDIA_BREAKPOINTS } from './media'
+// import { MEDIA_BREAKPOINTS } from './media'
 import { createTheme } from '@material-ui/core/styles'
 
 const style = {
   // breakpoints: {
   //   values: MEDIA_BREAKPOINTS
   // }
-  //
-  // typography: {
-  //     fontFamily: [
-  //         '-apple-system',
-  //         'BlinkMacSystemFont',
-  //         '"Segoe UI"',
-  //         'Roboto',
-  //         'Open Sans',
-  //         '"Helvetica Neue"',
-  //         'Arial',
-  //         'sans-serif',
-  //         '"Apple Color Emoji"',
-  //         '"Segoe UI Emoji"',
-  //         '"Segoe UI Symbol"'
-  //     ].join(',')
-  // },
 
   overrides: {
     MuiInputBase: {

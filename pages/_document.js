@@ -1,3 +1,4 @@
+import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/core/styles'
 import { muiTheme } from '../components/theme/muiTheme'
@@ -37,6 +38,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link rel="stylesheet" href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"

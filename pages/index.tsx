@@ -1,12 +1,11 @@
 import React from 'react'
 import { MainPage } from '../components/mainPage/mainPage'
-import { GlobalStyle } from '../components/theme/globalStyles'
+import { Layout } from '../components/layout'
 
 const IndexPage = () => (
-  <>
-    <GlobalStyle />
+  <Layout>
     <MainPage />
-  </>
+  </Layout>
 )
 
 export default IndexPage
