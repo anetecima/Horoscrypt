@@ -1,9 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheets } from '@material-ui/core/styles'
+import { muiTheme } from '../components/theme/muiTheme'
+import { ServerStyleSheet, ThemeProvider } from 'styled-components'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
+    const muiSheets = new ServerStyleSheets()
+
     const originalRenderPage = ctx.renderPage
 
     try {
@@ -19,6 +23,7 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            {muiSheets.getStyleElement()}
           </>
         )
       }
@@ -30,10 +35,12 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
+        <ThemeProvider theme={muiTheme}>
+          <body>
+            <Main />
+            <NextScript />
+          </body>
+        </ThemeProvider>
       </Html>
     )
   }
