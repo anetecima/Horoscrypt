@@ -94,7 +94,35 @@ export const FormInputs = () => {
         reader.onload = event => {
           const result = JSON.parse(event.target.result)
           setSmartFields(result)
-          console.log(smartFields)
+          console.log(result)
+
+          let htmlString = `
+            <h1>SUMMARY:</h1>
+            <p>${result.summary}</p>
+            <h2>Event Dates</h2>
+            <ul>
+          `
+
+          for (const [key, value] of Object.entries(result.dateTimeEntities)) {
+            htmlString += `<li><b>${key}</b> ${value}</li>`
+          }
+
+
+          htmlString += `
+            </ul>
+            <h2>To Do</h2>
+            <ul>
+          `
+
+          for (const [key, value] of Object.entries(result.eventEntities)) {
+            htmlString += `<li><b>${key}</b> ${value}</li>`
+          }
+
+          htmlString += `
+            </ul>
+          `
+
+          setEmailContent(htmlString)
           setStep(1)
         }
 
