@@ -28,9 +28,47 @@ export const ExtrasPage = () => {
   const videoRef = useRef<HTMLVideoElement | undefined>()
   const trackRef = useRef<HTMLTrackElement | undefined>()
 
+  // fetch transcript from backend on page load
+
+  useEffect(() => {
+    fetch('http://0.0.0.0:5000/v1/api/vtt')
+      .then(res => res.body)
+      .then(body => {
+        const reader = body.getReader()
+        return new ReadableStream({
+          start(controller) {
+            return pump()
+            function pump() {
+              return reader.read().then(({ done, value }) => {
+                if (done) {
+                  controller.close()
+                } else {
+                  controller.enqueue(value)
+                  return pump()
+                }
+              })
+            }
+          }
+        })  
+      })
+      .then(stream => new Response(stream))
+      .then(res => res.blob())
+      .then(blob => {
+        let reader = new FileReader()
+
+        reader.onload = event => {
+          console.log(event.target.result)
+          const result = event.target.result
+          setFile(result)
+        }
+  
+        reader.readAsDataURL(blob)
+      })
+  }, [])
+
   useEffect(() => {
     if (file) {
-      const track = videoRef.current?.addTextTrack('captions', 'Captions', 'en')
+      const track = videoRef.current?.textTracks[0]
       track.mode = 'showing'
       trackRef.current.src = file
       // sorry :(
@@ -39,6 +77,7 @@ export const ExtrasPage = () => {
   }, [file])
 
   const onFileUpload = useCallback(e => {
+    console.log('here', e.target.files[0])
     setIsError(false)
     setIsLoading(true)
 
@@ -47,6 +86,7 @@ export const ExtrasPage = () => {
       let reader = new FileReader()
 
       reader.onload = event => {
+
         const result = event.target.result
         setFile(result)
       }
@@ -79,8 +119,8 @@ export const ExtrasPage = () => {
           Your browser does not support videos.
         </video>
 
-        <div className="fl-shrink-0 p-20-20">
-          {cues.length
+        <TranscriptStyle className="fl-shrink-0 p-20-20">
+          {cues?.length
             ? [...Array(cues.length)].map((item, index) => {
                 return (
                   <TextStyle
