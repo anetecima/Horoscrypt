@@ -38,7 +38,14 @@ export const FormInputs = () => {
   const [link, setLink] = useState('')
   const [isLinkError, setIsLinkError] = useState(false)
   const [emailContent, setEmailContent] = useState('')
-  const [recipients, setRecipients] = useState([])
+  const [recipients, setRecipients] = useState([
+    'karl-martin.voovere@ut.ee>',
+    'anete.cima@gmail.com',
+    'eyupcandenizyilmaz@gmail.com',
+    'rastockymatej@gmail.com',
+    'beijate@gmail.com'
+  ])
+
   const [step, setStep] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
 
