@@ -52,16 +52,7 @@ export const FormInputs = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [smartFields, setSmartFields] = useState('')
 
-  const onClick = () => {
-    if (link.length > 8) {
-      //submit
-      setStep(1)
-    } else {
-      setIsLinkError(true)
-    }
-  }
-
-  const onLinkChange = e => {
+   const onLinkChange = e => {
     setIsLinkError(false)
     setLink(e.target.value)
   }
@@ -103,6 +94,8 @@ export const FormInputs = () => {
         reader.onload = event => {
           const result = JSON.parse(event.target.result)
           setSmartFields(result)
+          console.log(smartFields)
+          setStep(1)
         }
 
         reader.readAsText(blob)
