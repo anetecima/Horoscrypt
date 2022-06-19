@@ -35,7 +35,7 @@ const WrapperStyle = styled.div`
 `
 
 export const FormInputs = () => {
-  const [link, setLink] = useState('')
+  const [link, setLink] = useState('https://tartuulikool-my.sharepoint.com/:v:/g/personal/karlmv_ut_ee/Eb_w5Gj4N0lIv3sIgmalcjQBWjktodUT3JRiO3GWkRAqCw?e=YfASkt')
   const [isLinkError, setIsLinkError] = useState(false)
   const [emailContent, setEmailContent] = useState('')
   const [recipients, setRecipients] = useState([
@@ -48,6 +48,7 @@ export const FormInputs = () => {
 
   const [step, setStep] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
+  const [smartFields, setSmartFields] = useState('')
 
   const onClick = () => {
     if (link.length > 8) {
@@ -61,6 +62,59 @@ export const FormInputs = () => {
   const onLinkChange = e => {
     setIsLinkError(false)
     setLink(e.target.value)
+  }
+
+  const analyseVideo = () => {
+    setIsLoading(true)
+    console.log('lets analyse the video')
+
+    fetch('http://0.0.0.0:3001/v1/api/start-analysis',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ link })
+      })
+      .then(res => res.body)
+      .then(body => {
+        const reader = body.getReader()
+        return new ReadableStream({
+          start(controller) {
+            return pump()
+            function pump() {
+              return reader.read().then(({ done, value }) => {
+                if (done) {
+                  controller.close()
+                } else {
+                  controller.enqueue(value)
+                  return pump()
+                }
+              })
+            }
+          }
+        })  
+      })
+      .then(stream => new Response(stream))
+      .then(res => res.blob())
+      .then(blob => {
+        let reader = new FileReader()
+        setIsLoading(false)
+
+        reader.onload = event => {
+          const result = JSON.parse(event.target.result)
+          setSmartFields(result)
+        }
+  
+        reader.readAsText(blob)
+      })
+
+    
+    // setIsLoading(false)
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log('the server responded')
+    //   console.log('server responded with', data)
+    // })
+    // .catch(err => console.error(err))
   }
 
   const onContentChange = useCallback(newVal => {
@@ -85,7 +139,7 @@ export const FormInputs = () => {
               helperText={isLinkError && 'Please insert a link'}
             />
 
-            <CommonButton className="stretch m-t-20" onClick={onClick}>
+            <CommonButton className="stretch m-t-20" onClick={analyseVideo}>
               NEXT
             </CommonButton>
           </FormWrapper>

@@ -47,7 +47,7 @@ export const ExtrasPage = () => {
   // fetch transcript from backend on page load
 
   useEffect(() => {
-    fetch('http://0.0.0.0:5000/v1/api/vtt')
+    fetch('http://0.0.0.0:3001/v1/api/vtt')
       .then(res => res.body)
       .then(body => {
         const reader = body.getReader()
@@ -136,20 +136,20 @@ export const ExtrasPage = () => {
             Your browser does not support videos.
           </video>
 
-          <div className="fl-shrink-0 p-20-20">
-            {cues?.length
-              ? [...Array(cues.length)].map((item, index) => {
-                  return (
-                    <TextStyle
-                      className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition pointer"
-                      key={index}
-                      onClick={() => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                        videoRef.current.currentTime = cues?.[index]?.startTime
-                      }}
-                    >
-                      {/*@ts-ignore*/}
-                      <div>{cues?.[index]?.text}</div>
+        <div className="fl-shrink-0 p-20-20">
+          {cues?.length
+            ? [...Array(cues.length)].map((item, index) => {
+                return (
+                  <TextStyle
+                    className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition pointer"
+                    key={index}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                      videoRef.current.currentTime = cues?.[index]?.startTime
+                    }}
+                  >
+                    {/*@ts-ignore*/}
+                    <div>{cues?.[index]?.text}</div>
 
                       <div className=" f-s-16 f-s-12 m-l-20">{cues?.[index]?.startTime}</div>
                     </TextStyle>
