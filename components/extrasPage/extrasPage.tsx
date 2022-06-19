@@ -1,32 +1,20 @@
-import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { LoaderOverlay } from '../loaderOverlay'
-import { mediaMdUp, mediaSmUp } from '../theme/media'
 
 const WrapperStyle = styled.div`
   max-width: 1200px;
 `
 
-const VideoStyle = styled.video`
-  width: 100%;
-  max-width: 850px;
-`
-const TranscriptStyle = styled.div`
-  ${mediaMdUp} {
-    width: 300px;
-  }
-`
-const InnerWrapperStyle = styled.div`
-  flex-direction: column;
-  ${mediaMdUp} {
-    flex-direction: row;
-  }
-`
 const TextStyle = styled.div`
   &:hover {
     background: yellow;
   }
+`
+const InnerWrapperStyle = styled.div`
+  width: 100%;
+  max-width: 850px;
 `
 
 export const ExtrasPage = () => {
@@ -77,11 +65,10 @@ export const ExtrasPage = () => {
       {isError && <div className="f-s-22 c-error">something went wrong, please try again!</div>}
       <input type="file" onChange={onFileUpload} />
 
-      <InnerWrapperStyle className="fl fl-a-s">
-        <VideoStyle className="p-20-20" controls preload="metadata" ref={videoRef}>
+      <InnerWrapperStyle>
+        <video className="p-20-20 stretch" controls preload="metadata" ref={videoRef}>
           <source src="/video-0.mp4#t=0.001" type="video/mp4" />
           <track
-            onLoad={e => console.log(e)}
             ref={trackRef}
             // src="/output.vtt"
             kind="subtitles"
@@ -90,15 +77,19 @@ export const ExtrasPage = () => {
             default
           />
           Your browser does not support videos.
-        </VideoStyle>
+        </video>
 
-        <TranscriptStyle className="fl-shrink-0 p-20-20">
+        <div className="fl-shrink-0 p-20-20">
           {cues.length
             ? [...Array(cues.length)].map((item, index) => {
                 return (
                   <TextStyle
-                    className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition"
+                    className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition pointer"
                     key={index}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                      videoRef.current.currentTime = cues?.[index]?.startTime
+                    }}
                   >
                     {/*@ts-ignore*/}
                     <div>{cues?.[index]?.text}</div>
@@ -108,7 +99,7 @@ export const ExtrasPage = () => {
                 )
               })
             : null}
-        </TranscriptStyle>
+        </div>
       </InnerWrapperStyle>
     </WrapperStyle>
   )
