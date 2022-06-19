@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
 import { LoaderOverlay } from '../loaderOverlay'
-import { SatisfactionRate } from './satisfactionRate'
+import { SmartDataBlock } from './smartDataBlock'
+import { SMART_DATA } from './mocks'
+
+import styled from 'styled-components'
 import { mediaMdUp } from '../theme/media'
 
 const WrapperStyle = styled.div`
@@ -40,6 +42,7 @@ export const ExtrasPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [cues, setCues] = useState<TextTrackCueList | []>([])
   const [satisfactionRate, setSatisfactionRate] = useState(0.76)
+  const [smartFields, setSmartFields] = useState(SMART_DATA)
 
   const videoRef = useRef<HTMLVideoElement | undefined>()
   const trackRef = useRef<HTMLTrackElement | undefined>()
@@ -136,20 +139,20 @@ export const ExtrasPage = () => {
             Your browser does not support videos.
           </video>
 
-        <div className="fl-shrink-0 p-20-20">
-          {cues?.length
-            ? [...Array(cues.length)].map((item, index) => {
-                return (
-                  <TextStyle
-                    className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition pointer"
-                    key={index}
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' })
-                      videoRef.current.currentTime = cues?.[index]?.startTime
-                    }}
-                  >
-                    {/*@ts-ignore*/}
-                    <div>{cues?.[index]?.text}</div>
+          <div className="fl-shrink-0 p-20-20">
+            {cues?.length
+              ? [...Array(cues.length)].map((item, index) => {
+                  return (
+                    <TextStyle
+                      className="pos-rlt fl fl-j-sb f-s-16 p-8-0 bg-white transition pointer"
+                      key={index}
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                        videoRef.current.currentTime = cues?.[index]?.startTime
+                      }}
+                    >
+                      {/*@ts-ignore*/}
+                      <div>{cues?.[index]?.text}</div>
 
                       <div className=" f-s-16 f-s-12 m-l-20">{cues?.[index]?.startTime}</div>
                     </TextStyle>
@@ -159,7 +162,7 @@ export const ExtrasPage = () => {
           </div>
         </InnerWrapperStyle>
 
-        {satisfactionRate ? <SatisfactionRate rate={satisfactionRate} /> : null}
+        <SmartDataBlock data={smartFields} />
       </OuterWrapperStyle>
     </WrapperStyle>
   )
